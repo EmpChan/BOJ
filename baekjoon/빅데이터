@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n, p = 0,bc=0,sc=0;
+	cin >> n;
+	string s, cup =" ";
+	cin >> s;
+	string a = "bigdata";
+	string b = "security";
+	for (int i = 0; i < n; i++)
+	{
+		cup = "";
+		for (int j = 0; j < 7; j++)
+		{
+			cup += s[j + p];
+		}
+		if (cup == a)
+		{
+			p += 7;
+			bc++;
+		}
+		else
+		{
+			p += 8;
+			sc++;
+		}
+
+	}
+	if (bc >= sc)
+	{
+		cout << "bigdata?" << ' ';
+	}
+	if (sc >= bc)
+	{
+		cout << "security!";
+	}
+
+	return 0;
+}
