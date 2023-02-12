@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int cus[1000000];
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
+	int n, m,q=0,cup=0,coffee=0,j=0;
+	cin >> n >> m;
+	for (int i = 0; i < n; i++) {
+		cin >> cus[i];
+	}
+	for (int i = 0; q < n; i++) {
+		if (cus[q] == i) {
+			if (coffee <= 0) {
+				cout << "fail";
+				return 0;
+			}
+			else {
+				coffee--;
+				q++;
+			}
+		}
+		else if (cup > 0 && cus[j] - i <= m) {
+			j++;
+			cup--;
+			coffee++;
+		}
+		else {
+			cup++;
+		}
+	}
+	cout << "success";
+	return 0;
+}
